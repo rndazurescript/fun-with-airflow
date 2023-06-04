@@ -1,0 +1,1 @@
+SELECT partner_name FROM my_table WHERE created_at={{ ds }}
