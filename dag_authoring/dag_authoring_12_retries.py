@@ -10,9 +10,10 @@ from time import sleep
 # WATCH OUT: The callbacks won't be retried if they fail.
 # Prints will be shown in the logs in the folder e.g.
 # /usr/local/airflow/logs/scheduler/2023-06-04/dag_authoring/dag_authoring_12_retries.py.log
-# I did see the "Running SLA Checks for" but never saw an SLA miss in the logs or in the /slamiss/list/ page.
-# This needs more investigation to ensure that the SLA callback is working.
-# https://github.com/apache/airflow/blob/main/airflow/dag_processing/processor.py
+# I did see the "Running SLA Checks for" but never saw an SLA miss in the logs or in the /slamiss/list/ page 
+# when I first enabled the DAG. Left the DAG running for a day (see @daily schedule interval) and then
+# I saw the records appearing in the Browse-> SLA Misses page and the "Calling SLA miss callback" in the logs.
+
 def _task_failure_callback(context):
     from airflow.exceptions import AirflowTaskTimeout
 
