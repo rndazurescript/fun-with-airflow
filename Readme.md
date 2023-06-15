@@ -20,12 +20,18 @@ New Dag files will appear:
 - DagRun <- Scheduler
 - TaskInstance <- Executor
 
-start_date: tasks start being scheduled
-schedule_interval: from the min(start_date) as which DAG is triggered
-executions_date: start_date for the first run
-effectively triggered at executions_date + schedule_interval
-2nd run's executions_date = start_date + schedule_interval
-e.g.
+`start_date`: tasks start being executed
+
+`schedule_interval`: from the last time at which DAG is triggered
+
+`execution_date` or `ds`: Is the scheduled slot for the run
+
+Effectively triggered at `start_date= executions_date + schedule_interval`
+
+e.g. for 30 min scheduled interval with start date at 9:00:
+![execute date vs start date](https://github.com/rndazurescript/fun-with-airflow/assets/61463978/cbbee7d3-bad0-4341-ae34-891bef9af68f)
+
+
 
 @daily or `0 0 * * *` doesn't account for start hour.
 vs timedelta(days=1) based on previous execution. Timedelta also accounts for every 3 days pattern which is dif in cron.
