@@ -105,6 +105,8 @@ SubDagOperator has a pool but it **won't be used** in the tasks.
 By default, Airflow’s weighting method is downstream. You can find other weighting methods in airflow.utils.WeightRule.
 You assign that in the default_args of a DAG.
 
+![Airflow_Weighting_Methods](https://github.com/rndazurescript/fun-with-airflow/assets/61463978/6aa240d7-724f-4f75-a1de-e2b330b8e816)
+
 From <https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/priority-weight.html>:
 
 OPTIONS:
